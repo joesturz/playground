@@ -62,3 +62,28 @@ if let v5 = graphCloner(root: v0) {
 //}
 
 
+//Strings
+
+let testString: String = "This is a pretty good string with some stuff in it"
+let length = testString.count
+
+let splitString = testString.split(separator: " ")
+
+let start = testString.index(testString.startIndex, offsetBy: 0)
+let end = testString.index(testString.startIndex, offsetBy: testString.count - 1)
+let segment = testString[start...end]
+
+for c in testString {
+    print(c)
+}
+
+for string in splitString {
+    print(string)
+}
+
+checkForPalendrome(for: "kayak")
+checkForPalendrome(for: "issi")
+checkForPalendrome(for: "joe")
+
+getAllPalendromes(for: "kayak mom")
+
