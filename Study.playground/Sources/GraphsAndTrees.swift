@@ -83,3 +83,29 @@ public class Node {
         self.rNode = rNode
     }
 }
+
+public func flipTree(from root: Node) -> Node {
+    var newRNode: Node?
+    if let lNode = root.lNode {
+        newRNode = flipTree(from: lNode)
+    }
+    var newLNode: Node?
+    if let rNode = root.rNode {
+        newLNode = flipTree(from: rNode)
+    }
+    return Node(value: root.value, lNode: newLNode, rNode: newRNode)
+}
+
+public func printTree(from root: Node) {
+    var l = "nil"
+    if let lNode = root.lNode {
+        l = "\(lNode.value)"
+        printTree(from: lNode)
+    }
+    var r = "nil"
+    if let rNode = root.rNode {
+        r = "\(rNode.value)"
+        printTree(from: rNode)
+    }
+    print("Parent: \(root.value) Left: \(l) Right: \(r)")
+}

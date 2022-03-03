@@ -87,3 +87,19 @@ checkForPalendrome(for: "joe")
 
 getAllPalendromes(for: "kayak mom")
 
+let n6 = Node(value: 6)
+let n5 = Node(value: 5)
+let n4 = Node(value: 4)
+let n3 = Node(value: 3)
+let n2 = Node(value: 2, lNode: n5, rNode: n6)
+let n1 = Node(value: 1, lNode: n3, rNode: n4)
+let n0 = Node(value: 0, lNode: n1, rNode: n2)
+
+
+let flippedRoot = flipTree(from: n0)
+print("Original:")
+printTree(from: n0)
+
+print("Flipped:")
+printTree(from: flippedRoot)
+
