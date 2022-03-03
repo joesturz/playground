@@ -15,6 +15,7 @@ class RecommendationViewController: UIViewController {
     private lazy var infoLabel = makeLabel(with: "1 = Would not recommend, 10 = Would strongly recommend")
     private lazy var slider = makeSlider()
     private lazy var button = makeButton()
+    private lazy var closeButton = makeCloseButton()
     
     public var happinessValue: Int {
         return Int(slider.value)
@@ -22,6 +23,7 @@ class RecommendationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         NSLayoutConstraint.activate([
             headerLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -42,6 +44,10 @@ class RecommendationViewController: UIViewController {
             button.topAnchor.constraint(equalTo: slider.bottomAnchor),
             button.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             button.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            
+            closeButton.topAnchor.constraint(equalTo: button.bottomAnchor),
+            closeButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            closeButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
         ])
     }
 }
@@ -82,18 +88,30 @@ extension RecommendationViewController {
         self.view.addSubview(button)
         return button
     }
+    
+    func makeCloseButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle("Close", for: .normal)
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(button)
+        return button
+    }
 }
 
 extension RecommendationViewController {
-    @objc
-    func sliderSlid() {
+    @objc func sliderSlid() {
         var val = self.slider.value
         val.round(.down)
         print(val)
     }
     
-    @objc
-    func buttonTapped() {
-        self.present(DiagnosisViewController(happy: happinessValue), animated: true, completion: nil)
+    @objc func buttonTapped() {
+        let vc = DiagnosisViewController(happy: happinessValue)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
     }
 }
