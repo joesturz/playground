@@ -103,3 +103,11 @@ printTree(from: n0)
 print("Flipped:")
 printTree(from: flippedRoot)
 
+let intervalsA = [(1, 5), (3, 7), (4, 6), (6, 8)]
+let intervalsB = [(10, 12), (12, 15)]
+
+print(merge(intervals: intervalsA))
+print(merge(intervals: intervalsB))
+
+print(reverseWordOrder(of: "Hello World!"))
+print(reverseWordOrder(of: testString))

@@ -31,7 +31,8 @@ DerivedData/
 
 ## Playgrounds
 timeline.xctimeline
-*playground.xcworkspace/
+*.xcworkspace
+*.xcuserstate
 
 # Swift Package Manager
 #

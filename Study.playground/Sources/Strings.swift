@@ -44,3 +44,18 @@ public func getAllPalendromes(for string: String) -> [String] {
     }
     return result
 }
+
+public func reverseWordOrder(of string: String) -> String {
+    let words = string.components(separatedBy: " ")
+    var i = words.count - 1
+    var result = ""
+    while i > -1 {
+        if i == words.count - 1 {
+            result = "\(words[i])"
+        } else {
+            result = "\(result) \(words[i])"
+        }
+        i -= 1
+    }
+    return result
+}
