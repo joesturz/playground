@@ -5,6 +5,10 @@ public class LinkedList {
     var tail: Link?
     public var count = 0
     
+    public var isEmpty:Bool {
+        get { return count == 0 }
+    }
+    
     public init(value: Int) {
         let head = Link(value: value, parent: nil, child: nil)
         self.head = head
@@ -23,6 +27,7 @@ public class LinkedList {
         guard let head = self.head else {
             self.head = link
             self.tail = link
+            count += 1
             return
         }
         head.setParent(parent: link)
@@ -35,6 +40,7 @@ public class LinkedList {
         guard let tail = self.tail else {
             self.head = link
             self.tail = link
+            count += 1
             return
         }
         tail.setChild(child: link)
@@ -47,7 +53,6 @@ public class LinkedList {
         
         guard let head = self.head, let child = head.child else {
             emptyList()
-            count -= 1
             return nil
         }
         child.setParent(parent: nil)
@@ -60,7 +65,6 @@ public class LinkedList {
         let link = self.tail
         guard let tail = self.tail, let parent = tail.parent else {
             emptyList()
-            count -= 1
             return nil
         }
         parent.setChild(child: nil)
@@ -96,6 +100,7 @@ public class LinkedList {
     private func emptyList() {
         self.head = nil
         self.tail = nil
+        self.count = 0
     }
     
 }
