@@ -35,7 +35,7 @@ public class Concurrency {
         return customQueue
     }
     
-    static public func combineRows(of matrix: [[Int]], iteration: Int,  completion: @escaping (Int) -> ()?) {
+    public static func combineRows(of matrix: [[Int]], iteration: Int,  completion: @escaping (Int) -> ()?) {
         let queue1 = getCustomQueue()
         let queue2 = getCustomQueue(of: .background)
         
@@ -83,6 +83,25 @@ public class Concurrency {
             print("")
         }
             
+    }
+    
+    public static func semaphoreExample() {
+        let queue = getCustomQueue()
+        // set the semaphore with the max number of executing threads
+        let semaphore = DispatchSemaphore(value: 3)
+        for i in (0...15) {
+            queue.async {
+                let songNumber = i + 1
+                // wait() decrements the value taking a thread from the pool
+                semaphore.wait()
+                print("Downloading song", songNumber)
+                sleep(2) // Download take ~2 sec each
+                print("Downloaded song", songNumber)
+                
+                // signal() adds back a thread to the pool
+                semaphore.signal()
+            }
+        }
     }
 }
 
