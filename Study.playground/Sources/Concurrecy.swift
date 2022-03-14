@@ -28,7 +28,7 @@ public class Concurrency {
     }
     
     // 3. Custom Queues
-//    A good choice when you want to perform background work serially and track it. This eliminates resource contention and race conditions since you know only one task at a time is executing. Note that if you need the data from a method, you must declare another closure to retrieve it or consider using sync
+    // A good choice when you want to perform background work serially and track it. This eliminates resource contention and race conditions since you know only one task at a time is executing. Note that if you need the data from a method, you must declare another closure to retrieve it or consider using sync.
     
     public static func getCustomQueue(of qos: DispatchQoS = .default, with name: String = "default") -> DispatchQueue {
         let customQueue = DispatchQueue(label: name, qos: qos, attributes: .concurrent, autoreleaseFrequency: .workItem, target: nil)
@@ -44,7 +44,7 @@ public class Concurrency {
         var results1:[Int] = []
         var results2:[Int] = []
         
-        // you must enter the group, then to the work
+        // you must enter the group, then do the work
         group.enter()
         for r in matrix {
             var result1 = 0
