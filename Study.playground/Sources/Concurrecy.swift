@@ -105,4 +105,23 @@ public class Concurrency {
     }
 }
 
-
+// this is the question apple asked me on threading.
+public class ThreadSafeDictionary {
+    private var dict: [String: String] = [:]
+    private let queue = DispatchQueue(label: "dict.queue", attributes: .concurrent)
+    public func set(object: String, for key: String) {
+        // call async with a barrier to ensure all other threads have completed when the update happens
+        queue.async(flags: .barrier) {
+            self.dict[key] = object
+        }
+    }
+    
+    public func getObject(for key: String) -> String? {
+        var result: String? = nil
+        // call sync on the queue to ensure nothing else is executing on the queue when the read occurrs
+        queue.sync {
+            result = self.dict[key]
+        }
+        return result
+    }
+}
