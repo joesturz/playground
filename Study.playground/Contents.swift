@@ -213,3 +213,9 @@ import UIKit
 //print(s.studentQuestions)
 //
 //print(s.getStudentsByFastest())
+//
+//print(addEmbeddedNumbers(in: "on3 two thr33 f0ur 50m3 5tuff"))
+//
+//print(addEmbeddedNumbers(in: "334"))
+//
+//print(addEmbeddedNumbers(in: "on3 two thr33 f0ur 50m3 5tuff j03"))

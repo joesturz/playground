@@ -59,3 +59,24 @@ public func reverseWordOrder(of string: String) -> String {
     }
     return result
 }
+
+public func addEmbeddedNumbers(in string: String) -> Int {
+    var currentNum = 0
+    var total = 0
+    for c in string {
+        if let num = c.wholeNumberValue {
+            if currentNum > 0 {
+                currentNum *= 10
+                currentNum += num
+            } else {
+                currentNum = num
+            }
+        } else {
+            total += currentNum
+            currentNum = 0
+        }
+    }
+    // add in whatever is left
+    total += currentNum
+    return total
+}
