@@ -219,3 +219,31 @@ import UIKit
 //print(addEmbeddedNumbers(in: "334"))
 //
 //print(addEmbeddedNumbers(in: "on3 two thr33 f0ur 50m3 5tuff j03"))
+
+//let n1 = ListNode.init(2, ListNode.init(4, ListNode.init(3)))
+//let n2 = ListNode.init(5, ListNode.init(6, ListNode.init(4)))
+//
+//let val1 = getIntFrom(node: n1)
+//let val2 = getIntFrom(node: n2)
+//
+//let val3 = val1 + val2
+//
+//let n0 = getNodeFrom(num: val3)
+//if let n0 = n0 {
+//    getIntFrom(node: n0)
+//}
+
+let n1 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9)))))))
+let n2 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9))))
+
+let val1 = getIntFrom(node: n1)
+let val2 = getIntFrom(node: n2)
+
+let val3 = val1 + val2
+
+let n0 = getNodeFrom(num: val3)
+if let n0 = n0 {
+    getIntFrom(node: n0)
+}
+
+

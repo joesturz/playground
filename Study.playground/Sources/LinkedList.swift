@@ -136,3 +136,59 @@ public class Link: Equatable {
                 && lhs.child == rhs.child)
     }
 }
+
+
+
+
+//First attempt: fails do to large integers
+public class ListNode {
+    public var val: Int
+    public var next: ListNode?
+    public init() { self.val = 0; self.next = nil; }
+    public init(_ val: Int) { self.val = val; self.next = nil; }
+    public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+}
+
+public func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+    if let l1 = l1, let l2 = l2 {
+        let val1 = getIntFrom(node: l1)
+        let val2 = getIntFrom(node: l2)
+        let val3 = val1 + val2
+        return getNodeFrom(num: val3)
+    }
+    return nil
+}
+
+public func getIntFrom(node: ListNode, sum: Int = 0, depth: Int = 0) -> Int {
+    let placeVal = Int(truncating: pow(10, depth) as NSNumber)
+    let newSum = (node.val * placeVal) + sum
+    while node.hasNext() {
+        guard let node = node.next else {
+            return newSum
+        }
+        
+        return getIntFrom(node: node, sum: newSum, depth: depth + 1)
+    }
+    return newSum
+}
+
+public func getNodeFrom(num: Int) -> ListNode? {
+    let rev = String("\(num)".reversed())
+    var currentNode: ListNode? = nil
+    var firstNode: ListNode? = nil
+    for n in rev {
+        let newNode = ListNode.init(n.wholeNumberValue ?? 0)
+        if currentNode == nil {
+            firstNode = newNode
+        } else {
+            currentNode?.next = newNode
+        }
+        currentNode = newNode
+    }
+    
+    return firstNode
+}
+
+extension ListNode {
+    public func hasNext() -> Bool { self.next != nil }
+}

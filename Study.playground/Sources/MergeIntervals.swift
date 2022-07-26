@@ -22,3 +22,18 @@ public func merge(intervals: [(Int, Int)]) -> (Int, Int) {
     }
     return result
 }
+
+func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    let numsWithIndex = nums.enumerated()
+    for (index_i, i) in numsWithIndex {
+        for (index_j, j) in numsWithIndex {
+            if index_i != index_j {
+                if i + j == target {
+                    return [index_i, index_j]
+                }
+            }
+        }
+    }
+    return []
+}
+
