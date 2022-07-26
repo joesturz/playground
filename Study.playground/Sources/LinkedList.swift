@@ -149,7 +149,7 @@ public class ListNode {
     public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
 }
 
-public func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+public func addTwoNumbersNew(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     if let l1 = l1, let l2 = l2 {
         let val1 = getIntFrom(node: l1)
         let val2 = getIntFrom(node: l2)
@@ -161,7 +161,7 @@ public func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
 
 public func getIntFrom(node: ListNode, sum: Int = 0, depth: Int = 0) -> Int {
     let placeVal = Int(truncating: pow(10, depth) as NSNumber)
-    let newSum = (node.val * placeVal) + sum
+    var newSum = (node.val * placeVal) + sum
     while node.hasNext() {
         guard let node = node.next else {
             return newSum
@@ -191,4 +191,47 @@ public func getNodeFrom(num: Int) -> ListNode? {
 
 extension ListNode {
     public func hasNext() -> Bool { self.next != nil }
+}
+
+//this solution works! even for big ints
+public class Solution {
+    public init() { }
+    var headNode: ListNode? = nil
+    var currentNode: ListNode? = nil
+    var carryOver = 0
+    public func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var nextNode1 = l1
+        var nextNode2 = l2
+        while nextNode1 != nil || nextNode2 != nil {
+            let i = nextNode1?.val ?? 0
+            let j = nextNode2?.val ?? 0
+            
+            let sum = i + j + carryOver
+            
+            var newSum = sum
+            if sum > 9 {
+                newSum = sum % 10
+                carryOver = sum / 10
+            } else {
+                carryOver = 0
+            }
+            let node = ListNode.init(newSum)
+            if headNode == nil {
+                headNode = node
+            } else {
+                if let c = currentNode {
+                    c.next = node
+                }
+            }
+            currentNode = node
+            nextNode1 = nextNode1?.next
+            nextNode2 = nextNode2?.next
+
+        }
+        if carryOver > 0 {
+            let lastNode = ListNode.init(carryOver)
+            currentNode?.next = lastNode
+        }
+        return headNode
+    }
 }

@@ -235,15 +235,29 @@ import UIKit
 
 let n1 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9)))))))
 let n2 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9))))
+//
+//let val1 = getIntFrom(node: n1)
+//let val2 = getIntFrom(node: n2)
+//
+//let val3 = val1 + val2
+//
+//let n0 = getNodeFrom(num: val3)
+//if let n0 = n0 {
+//    getIntFrom(node: n0)
+//}
 
-let val1 = getIntFrom(node: n1)
-let val2 = getIntFrom(node: n2)
-
-let val3 = val1 + val2
-
-let n0 = getNodeFrom(num: val3)
-if let n0 = n0 {
-    getIntFrom(node: n0)
-}
+//let n1 = ListNode.init(1, ListNode.init(2, ListNode.init(3, ListNode.init(4, ListNode.init(5, ListNode.init(6, ListNode.init(7)))))))
+//let n2 = ListNode.init(1, ListNode.init(2, ListNode.init(3, ListNode.init(4))))
 
 
+//if let r0 = s.addTwoNumbersNew(n1, n2) {
+//    print(r0.val)
+//    if let r1 = r0.next {
+//        print(r1.val)
+//        if let r2 = r1.next {
+//            print(r2.val)
+//        }
+//    }
+//}
+let s = Solution.init()
+getIntFrom(node: s.addTwoNumbers(n1, n2)!)
