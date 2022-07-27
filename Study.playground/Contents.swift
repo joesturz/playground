@@ -261,3 +261,10 @@ let n2 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9))))
 //}
 let s = Solution.init()
 getIntFrom(node: s.addTwoNumbers(n1, n2)!)
+
+let temp = Strings.init()
+
+temp.lengthOfLongestSubstring("bbbbbb")
+temp.hasDuplicate("abc")
+temp.hasDuplicate("bbb")
+temp.lengthOfLongestSubstring("hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")

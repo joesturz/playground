@@ -80,3 +80,64 @@ public func addEmbeddedNumbers(in string: String) -> Int {
     total += currentNum
     return total
 }
+
+
+public class Strings {
+    public init() { }
+    public func lengthOfLongestSubstring(_ s: String) -> Int {
+        var result = 0
+        var counter = s.count - 1
+        while counter >= 0 {
+            var startIndex = 0
+            var endIndex = counter
+            while endIndex <= s.count - 1 {
+                let start = s.index(s.startIndex, offsetBy: startIndex)
+                let end = s.index(s.startIndex, offsetBy: endIndex)
+                let segment = s[start...end]
+                let sub = String(segment)
+                if !hasDuplicate(sub){
+                    if sub.count > result {
+                        result = sub.count
+                    }
+                }
+                startIndex += 1
+                endIndex += 1
+            }
+            counter -= 1
+        }
+        return result
+    }
+    
+    public func findAllSubstringWithoutDups(from string: String) -> [String] {
+        var result: [String] = []
+        var counter = string.count - 1
+        while counter >= 0 {
+            var startIndex = 0
+            var endIndex = counter
+            while endIndex <= string.count - 1 {
+                let start = string.index(string.startIndex, offsetBy: startIndex)
+                let end = string.index(string.startIndex, offsetBy: endIndex)
+                let segment = string[start...end]
+                result.append(String(segment))
+                startIndex += 1
+                endIndex += 1
+            }
+            counter -= 1
+        }
+        return result
+    }
+    
+    public func hasDuplicate(_ s: String) -> Bool {
+        var dict: [String.Element: Int] = [:]
+        for c in s {
+            if let val = dict[c] {
+                if val > 0 {
+                    return true
+                }
+            } else {
+                dict[c] = 1
+            }
+        }
+        return false
+    }
+}
