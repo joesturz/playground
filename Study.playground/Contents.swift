@@ -233,8 +233,8 @@ import UIKit
 //    getIntFrom(node: n0)
 //}
 
-let n1 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9)))))))
-let n2 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9))))
+//let n1 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9)))))))
+//let n2 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9))))
 //
 //let val1 = getIntFrom(node: n1)
 //let val2 = getIntFrom(node: n2)
@@ -259,12 +259,17 @@ let n2 = ListNode.init(9, ListNode.init(9, ListNode.init(9, ListNode.init(9))))
 //        }
 //    }
 //}
-let s = Solution.init()
-getIntFrom(node: s.addTwoNumbers(n1, n2)!)
 
-let temp = Strings.init()
+//let s = Solution.init()
+//getIntFrom(node: s.addTwoNumbers(n1, n2)!)
+//
+//let temp = Strings.init()
+//
+//temp.lengthOfLongestSubstring("bbbbbb")
+//temp.hasDuplicate("abc")
+//temp.hasDuplicate("bbb")
+//temp.lengthOfLongestSubstring("hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
-temp.lengthOfLongestSubstring("bbbbbb")
-temp.hasDuplicate("abc")
-temp.hasDuplicate("bbb")
-temp.lengthOfLongestSubstring("hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789hijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+
+let a = Double(192)/100
+let b = ceil(a)
