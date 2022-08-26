@@ -273,3 +273,23 @@ import UIKit
 
 let a = Double(192)/100
 let b = ceil(a)
+
+func sum(_ a: [Int]) -> Int {
+    var result = 0
+    for i in a {
+       result += i
+    }
+    return result
+}
+
+
+//sum([1,2,3])
+//
+//let system = ParkingSystem()
+//
+//system.intakeCar(plateNum: "Joe1", time: 3)
+//print(system.exitLot(plateNum: "Joe1", time: 9))
+//
+//
+//system.intakeCar(plateNum: "Joe2", time: 11)
+//print(system.exitLot(plateNum: "Joe2", time: 21))
