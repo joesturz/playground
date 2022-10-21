@@ -1,5 +1,12 @@
 import UIKit
 
+let e = SetExamples()
+print(e.createSet(of: 10))
+
+let se = e.combine(set1: Set([1,2,3]), set2: Set([3,4,5,6]))
+print(se)
+
+
 // Number manipulation
 
 //let numbers = [3, 7, 1, 2, 8, 4, 5]
