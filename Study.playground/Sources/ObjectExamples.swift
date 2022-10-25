@@ -9,37 +9,93 @@ enum Color: String {
     case yellow
     case purple
     case orange
+    case brown
     case white
 }
 
+enum ShapeName: String {
+    case triangle
+    case square
+    case pentagon
+    case hexagon
+    case septagon
+    case octagon
+    case circle
+    case unknown
+}
+
 class Shape {
-    var name: String
-    var color: Color
-    var sides: Int
-    init(name: String, color: Color, sides: Int) {
-        self.name = name
-        self.color = color
+    var sides: Int {
+        get{
+            return getSides()
+        }
+        set(number) {
+            setNameAndColor(number: number)
+        }
+    }
+    // if you dont have defaults they need to be set in the init
+    var name: ShapeName = .unknown
+    var color: Color = .white
+
+    init(sides: Int) {
         self.sides = sides
+    }
+    
+    init() { }
+    
+    private func setNameAndColor(number: Int) {
+        switch number {
+        case 3:
+            name = .triangle
+            color = .red
+        case 4:
+            name = .square
+            color = .blue
+        case 5:
+            name = .pentagon
+            color = .green
+        case 6:
+            name = .hexagon
+            color = .yellow
+        case 7:
+            name = .septagon
+            color = .purple
+        case 8:
+            name = .octagon
+            color = .orange
+        case 0:
+            name = .circle
+            color = .blue
+        default:
+            name = .unknown
+            color = .white
+        }
+    }
+    
+    private func getSides() -> Int {
+        switch color {
+        case .red:
+            return 3
+        case .blue:
+            return 4
+        case .green:
+            return 5
+        case .yellow:
+            return 6
+        case .purple:
+            return 7
+        case .orange:
+            return 8
+        case .brown:
+            return 0
+        case .white:
+            return -1
+        }
     }
 }
 
-func getColor(from number: Int) -> Shape {
-    switch number {
-    case 3:
-        return Shape(name: "triangle", color: .red, sides: number)
-    case 4:
-        return Shape(name: "square", color: .blue, sides: number)
-    case 5:
-        return Shape(name: "pentagon", color: .green, sides: number)
-    case 6:
-        return Shape(name: "hexagon", color: .yellow, sides: number)
-    case 7:
-        return Shape(name: "septagon", color: .purple, sides: number)
-    case 8:
-        return Shape(name: "octagon", color: .orange, sides: number)
-    default:
-        return Shape(name: "unknown", color: .white, sides: number)
-    }
+func getShape(from number: Int) -> Shape {
+    return Shape(sides: number)
 }
 
 
@@ -48,7 +104,7 @@ func testShape() {
 
     // For loops
     for side in (3...8) {
-        things.append(getColor(from: side))
+        things.append(getShape(from: side))
     }
 
 
