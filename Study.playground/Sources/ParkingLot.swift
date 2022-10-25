@@ -12,7 +12,7 @@ import Foundation
 //Vehicles are charged, every hour:
 // 1. $3 from 6am to 10am
 // 2. $1 from 10am to Midnight. // 10-24
-// 3. Parking is free from Midnight to 6am <6
+// 3. Parking is free from Midnight to 6am < 6
 //
 //Examples:
 // 1. Vehicles that use the car park from 3am to 9am are charged - $9
@@ -35,16 +35,16 @@ import Foundation
 
 public class ParkingSystem {
     var parkingLot: [String: Int] = [:]
-    
+
     public init() { }
-    
+
     //return the index
     public func intakeCar(plateNum: String, time: Int){
         parkingLot[plateNum] = time
         return
     }
     //car is location in the array
-    
+
     public func exitLot(plateNum: String, time: Int) -> Int  {
         var fee = 0
         guard let startTime = parkingLot[plateNum] else {
@@ -60,5 +60,8 @@ public class ParkingSystem {
         parkingLot[plateNum] = nil
         return fee
     }
-    
+
 }
+
+
+
