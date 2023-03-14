@@ -7,10 +7,10 @@
 
 import Foundation
 
-getFile()
+convertThemePackToTheme()
 
-func getFile() {
-    let path = "/Users/joe.sturzenegger/Desktop/ArchiveExample.ebthemepack"
+func convertThemePackToTheme() {
+    let path = "~/Desktop/ArchiveExample.ebthemepack"
     guard let wrapper = try? FileWrapper(url: URL(fileURLWithPath: path), options: .immediate) else {
         print("no filewrapper")
         return
@@ -29,9 +29,9 @@ func getFile() {
             return
         }
         do {
-            try FileManager.default.createDirectory(atPath: "/Users/joe.sturzenegger/Desktop/temp/temp.ebtheme/", withIntermediateDirectories: true, attributes: nil)
+            try FileManager.default.createDirectory(atPath: "~/Desktop/temp/temp.ebtheme/", withIntermediateDirectories: true, attributes: nil)
         } catch {
-            print("cant make folder")
+            print("can't make folder")
             return
         }
         for k in wrappers.keys {
@@ -40,7 +40,7 @@ func getFile() {
             }
             do {
                 print(w.isRegularFile)
-                try w.write(to: URL(fileURLWithPath: "/Users/joe.sturzenegger/Desktop/temp/temp.ebtheme/\(k)"), originalContentsURL: nil)
+                try w.write(to: URL(fileURLWithPath: "~/Desktop/temp/temp.ebtheme/\(k)"), originalContentsURL: nil)
             } catch {
                 print("could not write \(k)")
             }
