@@ -300,3 +300,11 @@ func sum(_ a: [Int]) -> Int {
 //
 //system.intakeCar(plateNum: "Joe2", time: 11)
 //print(system.exitLot(plateNum: "Joe2", time: 21))
+
+getDate(from: "Oct 22 2020")
+func getDate(from text: String) -> Date? {
+  let formatter = DateFormatter()
+  formatter.dateFormat = "MMM dd yyyy"
+  let someDateTime = formatter.date(from: text)
+  return someDateTime
+}
