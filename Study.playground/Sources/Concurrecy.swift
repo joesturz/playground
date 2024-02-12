@@ -125,3 +125,49 @@ public class ThreadSafeDictionary {
         return result
     }
 }
+
+public class MyThread: Thread {
+    private var id: Int
+    
+    public init(id: Int) {
+        self.id = id
+    }
+    
+    public override func main() {
+        if id % 2 == 0 {
+            _ = id * id
+        } else {
+            _ = (id * id - 1) / 3
+        }
+        print(id)
+    }
+}
+
+public class ThreadPool {
+    private var pool: [MyThread] = []
+    private var threadCount: Int
+    
+    public init(threadCount: Int) {
+        self.threadCount = threadCount
+        fillPool()
+    }
+    
+    private func fillPool() {
+        for i in (1...threadCount) {
+            let t = MyThread(id: i)
+            pool.append(t)
+        }
+    }
+    
+    public func getPoolCount() -> Int {
+        return pool.count
+    }
+    
+    public func startPool() {
+        for i in pool {
+            i.start()
+        }
+    }
+    
+}
+

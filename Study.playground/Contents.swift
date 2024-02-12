@@ -11,6 +11,15 @@ collectionTypes.makeAnArray()
 collectionTypes.makeASet()
 collectionTypes.makeADictionary()
 
+//THREADING CODE
+let threadPool = ThreadPool(threadCount: 12)
+
+print("Total Threads: \(threadPool.getPoolCount())")
+
+threadPool.startPool()
+
+
+
 // Number manipulation
 
 //let numbers = [3, 7, 1, 2, 8, 4, 5]
