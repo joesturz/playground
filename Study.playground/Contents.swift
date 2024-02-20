@@ -12,12 +12,14 @@ collectionTypes.makeASet()
 collectionTypes.makeADictionary()
 
 //THREADING CODE
-let threadPool = ThreadPool(threadCount: 12)
-
-print("Total Threads: \(threadPool.getPoolCount())")
-
-threadPool.startPool()
-
+//let threadPool = ThreadPool(threadCount: 12)
+//
+//print("Total Threads: \(threadPool.getPoolCount())")
+//
+//threadPool.startPool()
+lengthOfLongestSubstring("abcabcbb")
+lengthOfLongestSubstring("bbbbb")
+lengthOfLongestSubstring("pwwkew")
 
 
 // Number manipulation

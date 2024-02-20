@@ -19,6 +19,42 @@ public func findAllSubstring(from string: String) -> [String] {
     return result
 }
 
+public func lengthOfLongestSubstring(_ s: String) -> Int {
+    var counter = s.count - 1
+        while counter >= 0 {
+            var startIndex = 0
+            var endIndex = counter
+            while endIndex <= s.count - 1 {
+                let start = s.index(s.startIndex, offsetBy: startIndex)
+                let end = s.index(s.startIndex, offsetBy: endIndex)
+                let segString = String(s[start...end])
+                let set = Set(segString)
+                if set.count == segString.count {
+                    return segString.count
+                }
+                startIndex += 1
+                endIndex += 1
+            }
+            counter -= 1
+        }
+        return 0
+}
+
+public func lengthOfLongestSubstringFaster(_ s: String) -> Int {
+    var longest = 0
+    var foundCharacters: [Character: Int] = [:]
+    
+    var leftWindowIndex = 0
+    for (rightWindowIndex, character) in s.enumerated() {
+        if let exists = foundCharacters[character] {
+            leftWindowIndex = max(exists, leftWindowIndex)
+        }
+        longest = max(longest, rightWindowIndex - leftWindowIndex + 1)
+        foundCharacters[character] = rightWindowIndex + 1
+    }
+    return longest
+}
+
 public func checkForPalendrome(for string: String) -> Bool {
     let characters = Array(string)
     var i = 0
