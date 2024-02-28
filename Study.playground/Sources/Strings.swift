@@ -40,17 +40,23 @@ public func lengthOfLongestSubstring(_ s: String) -> Int {
         return 0
 }
 
+// this works by going through the list of characters and keeping track of the longest
+// running character list without duplicates
 public func lengthOfLongestSubstringFaster(_ s: String) -> Int {
-    var longest = 0
-    var foundCharacters: [Character: Int] = [:]
+    var longest = 0 // result
+    var foundCharacters: [Character: Int] = [:] //Dict, containing the chars and their count
     
     var leftWindowIndex = 0
-    for (rightWindowIndex, character) in s.enumerated() {
-        if let exists = foundCharacters[character] {
-            leftWindowIndex = max(exists, leftWindowIndex)
+    for (rightWindowIndex, character) in s.enumerated() { // enumerate the characters
+        if let exists = foundCharacters[character] { // if character exists(if there is a duplicate letter)
+            leftWindowIndex = max(exists, leftWindowIndex) // get the left window index
         }
-        longest = max(longest, rightWindowIndex - leftWindowIndex + 1)
-        foundCharacters[character] = rightWindowIndex + 1
+        let currentRunCount = (rightWindowIndex - leftWindowIndex) + 1
+        print("current run count: \(currentRunCount)")
+        longest = max(longest, currentRunCount) // set the new longest of the current run vs the longest so far
+        print("current longest: \(longest)")
+        foundCharacters[character] = rightWindowIndex + 1 // set the character and co
+        print(foundCharacters)
     }
     return longest
 }

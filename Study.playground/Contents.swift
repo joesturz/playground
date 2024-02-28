@@ -20,6 +20,7 @@ collectionTypes.makeADictionary()
 lengthOfLongestSubstring("abcabcbb")
 lengthOfLongestSubstring("bbbbb")
 lengthOfLongestSubstring("pwwkew")
+lengthOfLongestSubstringFaster("abcabcdbb")
 
 
 // Number manipulation
