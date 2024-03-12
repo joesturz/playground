@@ -11,6 +11,19 @@ collectionTypes.makeAnArray()
 collectionTypes.makeASet()
 collectionTypes.makeADictionary()
 
+let testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+"a,d,f,g".components(separatedBy: ",")
+
+var shuffled = testArray.shuffled()
+
+let sorter = Sorting()
+
+let sortedResult = sorter.mergeSort(shuffled)
+
+sorter.quickSort(&shuffled)
+
+print(shuffled)
 //THREADING CODE
 //let threadPool = ThreadPool(threadCount: 12)
 //

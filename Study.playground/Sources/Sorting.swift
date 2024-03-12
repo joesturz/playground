@@ -2,8 +2,10 @@ import Foundation
 
 public class Sorting {
     
+    public init() { }
+    
     // Helper function to simplify quicksort usage
-    func quickSort<T: Comparable>(_ array: inout [T]) {
+    public func quickSort<T: Comparable>(_ array: inout [T]) {
         quickSort(&array, low: 0, high: array.count - 1)
     }
     
@@ -44,7 +46,7 @@ public class Sorting {
         return partitionIndex
     }
 
-    func mergeSort<T: Comparable>(_ array: [T]) -> [T] {
+    public func mergeSort<T: Comparable>(_ array: [T]) -> [T] {
         // Base case: If the array has only one element or is empty, it's already sorted.
         guard array.count > 1 else {
             return array

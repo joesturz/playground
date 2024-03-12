@@ -109,3 +109,28 @@ public func printTree(from root: Node) {
     }
     print("Parent: \(root.value) Left: \(l) Right: \(r)")
 }
+
+public class ForLoops {
+    
+    let adjList: [[Int]] = [
+        [0,0,0,0,0],
+        [1,1,0,0,0],
+        [1,1,0,1,1],
+        [0,0,0,1,0],
+    ]
+    
+    func depthFirstSearch(_ list:[[Int]]) -> [Int] {
+        for row in adjList {
+            for col in row {
+                if col == 0 {
+                    continue
+                } else {
+                    
+                }
+            }
+        }
+        
+        return []
+    }
+    
+}

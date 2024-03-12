@@ -3,6 +3,7 @@ import Foundation
 public class LinkedList {
     var head: Link?
     var tail: Link?
+    
     public var count = 0
     
     public var isEmpty:Bool {
