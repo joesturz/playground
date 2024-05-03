@@ -34,7 +34,8 @@ lengthOfLongestSubstring("abcabcbb")
 lengthOfLongestSubstring("bbbbb")
 lengthOfLongestSubstring("pwwkew")
 lengthOfLongestSubstringFaster("abcabcdbb")
-
+let vc = ViewController()
+vc.fetchData()
 
 // Number manipulation
 

@@ -162,7 +162,7 @@ public func addTwoNumbersNew(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
 
 public func getIntFrom(node: ListNode, sum: Int = 0, depth: Int = 0) -> Int {
     let placeVal = Int(truncating: pow(10, depth) as NSNumber)
-    var newSum = (node.val * placeVal) + sum
+    let newSum = (node.val * placeVal) + sum
     while node.hasNext() {
         guard let node = node.next else {
             return newSum
