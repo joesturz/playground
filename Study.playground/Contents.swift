@@ -1,5 +1,9 @@
 import UIKit
+import Foundation
 
+
+let interval = TimeInterval(123)
+print("interval: \(interval)")
 let e = SetExamples()
 print(e.createSet(of: 10))
 
@@ -35,6 +39,21 @@ lengthOfLongestSubstring("bbbbb")
 lengthOfLongestSubstring("pwwkew")
 lengthOfLongestSubstringFaster("abcabcdbb")
 
+
+for fruit in Fruits.allCases {
+    print(fruit.rawValue)
+}
+
+for i in 2...2 {
+    print(i)
+}
+
+NumberCodes(rawValue: 1)
+
+let faultCodeIds: [UUID] = [UUID(), UUID(), UUID()]
+
+let queryItems: [String: String] = ["ids": "\(faultCodeIds.map( {$0.uuidString} ).joined(separator: ","))"]
+print(queryItems["ids"] ?? "nothing")
 
 // Number manipulation
 
